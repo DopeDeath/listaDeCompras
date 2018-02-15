@@ -1,3 +1,4 @@
+ var crypto = require("crypto");
 module.exports.produtosGetCtrl = function(app, req, res) {
 
 
@@ -35,6 +36,11 @@ module.exports.produtosPostCtrl = function(app, req, res) {
     var connection = app.config.dbConnection();
     var produtosModel = new app.app.models.ProdutosDAO(connection);
 
+
+
+    // produtosSub.nome = crypto.createHash('md5').update(produtosSub.nome).digest("hex")
+    //
+    // console.log(produtosSub);
   }
 
   produtosModel.postProdutos(produtosSub, function(error, result) {
